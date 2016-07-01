@@ -1,6 +1,6 @@
 ﻿//오브젝트 뒷면을 완전 무시한다.
 
-Shader "Custom/Simple Glass"
+Shader "Custom/Lab/Simple Glass"
 {
 	properties
 	{

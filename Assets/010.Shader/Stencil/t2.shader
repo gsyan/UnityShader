@@ -1,25 +1,23 @@
-﻿Shader "Custom/Stencil/Wall"
+﻿Shader "Custom/Stencil/Hole"
 {
-	Properties
-	{
-		_MainTex ("Texture", 2D) = "white" {}
-	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "Queue" = "Geometry+1" }
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry-1" }
 		
-		//ColorMask 0
+		ColorMask 0
 		ZWrite off
-
+	
 		Stencil
 		{
 			Ref 1
-			Comp notequal
-			Pass keep
+			Comp always
+			Pass replace
 		}
 
 		Pass
 		{
+			//ZTest Less
+
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -27,7 +25,6 @@
 			struct appdata
 			{
 				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
@@ -35,9 +32,6 @@
 				float4 vertex : SV_POSITION;
 			};
 
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
-			
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -47,7 +41,8 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = fixed4(0.5,0.5,0.5,1);
+
+				fixed4 col = fixed4(1,1,0,1);
 				return col;
 			}
 			ENDCG

@@ -1,4 +1,4 @@
-﻿Shader "Custom/Addictive"
+﻿Shader "Custom/Lab/Addictive"
 {
 	Properties
 	{

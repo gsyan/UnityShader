@@ -1,4 +1,4 @@
-﻿Shader "Custom/Reveal Backfaces"
+﻿Shader "Custom/Lab/Reveal Backfaces"
 {
 	properties
 	{

@@ -1,4 +1,4 @@
-﻿Shader "Custom/ShowInside"
+﻿Shader "Custom/Lab/ShowInside"
 {
 	properties
 	{
