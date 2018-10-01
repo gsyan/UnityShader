@@ -1,4 +1,7 @@
-﻿Shader "Custom/Test6"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Test6"
 {
 	SubShader
 	{
@@ -18,9 +21,9 @@
 			v2f vert(float4 vertex : POSITION, float3 normal : NORMAL)
 			{
 				v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, vertex);
+				o.pos = UnityObjectToClipPos(vertex);
 				// compute world space position of the vertex
-				float3 worldPos = mul(_Object2World, vertex).xyz;
+				float3 worldPos = mul(unity_ObjectToWorld, vertex).xyz;
 				// compute world space view direction
 				float3 worldViewDir = normalize(UnityWorldSpaceViewDir(worldPos));
 				// world space normal

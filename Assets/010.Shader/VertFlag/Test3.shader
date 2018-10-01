@@ -1,4 +1,6 @@
-﻿Shader "Custom/Test3"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Test3"
 {
 	Properties
 	{
@@ -38,7 +40,7 @@
 				v2f o;
 				// transform position to clip space
 				// (multiply with model*view*projection matrix)
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				// just pass the texture coordinate
 				o.uv = v.uv;
 				return o;

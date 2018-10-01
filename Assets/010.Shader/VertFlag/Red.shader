@@ -1,4 +1,6 @@
-﻿Shader "Custom/Red"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Red"
 {
 	SubShader
 	{
@@ -19,7 +21,7 @@
             };
             v2f vert(appdata v) {
                 v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.color = v.tangent * 0.5 + 0.5;
 				/*o.pos = UnityObjectToClipPos(v.vertex);*/
                 return o;

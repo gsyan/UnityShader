@@ -1,4 +1,6 @@
-﻿Shader "Custom/Test4"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Test4"
 {
 	Properties
 	{
@@ -27,7 +29,7 @@
 			{
 				v2f o;
 				o.uv = uv;
-				outpos = mul(UNITY_MATRIX_MVP, vertex);
+				outpos = UnityObjectToClipPos(vertex);
 				return o;
 			}
 
